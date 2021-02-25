@@ -12,16 +12,34 @@ public class Song {
     private int id;
     private String title;
     private String album;
+    private String artist;
     private int length;                         //Length in seconds
 
+    public Song(){
 
-    public int getId() {
-        return id;
+    }
+    public Song(String title, String album,String artist , int length) {
+        this.artist = artist;
+        this.title = title;
+        this.album = album;
+        this.length = length;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getArtist() {
+        return artist;
     }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public String getTitle() {
         return title;
@@ -45,5 +63,15 @@ public class Song {
 
     public void setLength(int length) {
         this.length = length;
+    }
+
+    @Override
+    public String toString() {
+        return "Song{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", album='" + album + '\'' +
+                ", length=" + length +
+                '}';
     }
 }

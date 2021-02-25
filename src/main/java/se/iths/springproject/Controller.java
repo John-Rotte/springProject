@@ -1,8 +1,15 @@
 package se.iths.springproject;
 
+import org.hibernate.annotations.SQLUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.support.CustomSQLErrorCodesTranslation;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class Controller {
@@ -16,12 +23,27 @@ public class Controller {
     }
 
     //Här görs mappningnar för olika requests som ska skickas vidare till en databas
-    @GetMapping("/hello")
-    public String sayHello(){
-        SongRepository songRepository;
-
-
-        return "Hello World";
-
+    @GetMapping("/songs")
+    public List<Song> all(){
+        return songRepository.findAll();
     }
+
+    @GetMapping("/songs/{id}")
+    public Song one(@PathVariable int id){
+        return songRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "Song with id " + id + " not found"));
+//        if (result.isPresent())
+//        return result.get();
+//
+//        throw new ResponseStatusException(HttpStatus.NOT_FOUND,"User with id " + id + " not found");
+    }
+
+    @PostMapping("/songs")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Song create(@RequestBody Song song){
+
+        return songRepository.save(song);
+    }
+
 }
