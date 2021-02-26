@@ -1,7 +1,8 @@
-package se.iths.springproject;
+package se.iths.springproject.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import se.iths.springproject.entities.Song;
 
 import java.util.List;
 
