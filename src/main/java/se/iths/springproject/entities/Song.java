@@ -1,4 +1,4 @@
-package se.iths.springproject;
+package se.iths.springproject.entities;
 
 import javax.persistence.*;
 
@@ -25,6 +25,14 @@ public class Song {
         this.length = length;
     }
 
+    public Song(int id, String title, String album, String artist, int length) {
+        this.id = id;
+        this.title = title;
+        this.album = album;
+        this.artist = artist;
+        this.length = length;
+    }
+
     public String getArtist() {
         return artist;
     }
@@ -33,13 +41,13 @@ public class Song {
         this.artist = artist;
     }
 
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
