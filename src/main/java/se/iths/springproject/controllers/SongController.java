@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import se.iths.springproject.dtos.SongDto;
+import se.iths.springproject.dtos.SongTitle;
 import se.iths.springproject.services.SongService;
 
 import java.util.List;
@@ -42,9 +43,19 @@ public class SongController {
     }
 
     @DeleteMapping("/songs/{id}")
-    public void delete(int id){
+    public void delete(@PathVariable int id){
+        songService.delete(id);
+    }
+
+    @PutMapping("/songs/{id}")
+        public SongDto replace(@RequestBody SongDto songDto, @PathVariable int id){
+        return songService.replace(id, songDto);
 
     }
 
+    @PatchMapping("/songs/{id}")
+    public SongDto update(@RequestBody SongTitle songTitle, @PathVariable int id) {
+        return songService.update(id, songTitle);
+    }
 
 }
