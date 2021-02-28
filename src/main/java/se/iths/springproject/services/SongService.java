@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SongService {
+public class SongService implements se.iths.springproject.services.Service {
 
     private final SongMapper songMapper;
     private SongRepository songRepository;
