@@ -29,7 +29,7 @@ public class SongController {
     @GetMapping("/songs/{id}")
     public SongDto one(@PathVariable int id){
         return service.getOne(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
-                        "Song with id " + id + " not found"));
+                "Song with id " + id + " not found"));
 //        if (result.isPresent())
 //        return result.get();
 //

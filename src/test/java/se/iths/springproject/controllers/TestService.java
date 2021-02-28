@@ -15,7 +15,7 @@ public class TestService implements Service {
 
     @Override
     public Optional<SongDto> getOne(int id) {
-        if(id == 0)
+        if(id == 1)
             return Optional.of(new SongDto(1,"Test","Test","Test", 1234));
         return Optional.empty();
     }
