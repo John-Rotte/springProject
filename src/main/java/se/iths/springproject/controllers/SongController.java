@@ -11,6 +11,7 @@ import se.iths.springproject.services.SongService;
 import java.util.List;
 
 @RestController
+@RequestMapping("/songs")
 public class SongController {
 
     private Service service;
@@ -21,12 +22,12 @@ public class SongController {
     }
 
     //Här görs mappningnar för olika requests som ska skickas vidare till en databas
-    @GetMapping("/songs")
+    @GetMapping( )
     public List<SongDto> all(){
         return service.getAllSongs();
     }
 
-    @GetMapping("/songs/{id}")
+    @GetMapping("/{id}")
     public SongDto one(@PathVariable int id){
         return service.getOne(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
                 "Song with id " + id + " not found"));
@@ -36,25 +37,25 @@ public class SongController {
 //        throw new ResponseStatusException(HttpStatus.NOT_FOUND,"User with id " + id + " not found");
     }
 
-    @PostMapping("/songs")
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public SongDto create(@RequestBody SongDto song){
 
         return service.createSong(song);
     }
 
-    @DeleteMapping("/songs/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         service.delete(id);
     }
 
-    @PutMapping("/songs/{id}")
+    @PutMapping("/{id}")
         public SongDto replace(@RequestBody SongDto songDto, @PathVariable int id){
         return service.replace(id, songDto);
 
     }
 
-    @PatchMapping("/songs/{id}")
+    @PatchMapping("/{id}")
     public SongDto update(@RequestBody SongTitle songTitle, @PathVariable int id) {
         return service.update(id, songTitle);
     }
