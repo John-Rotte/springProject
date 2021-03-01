@@ -22,7 +22,7 @@ public class SongController {
     }
 
     //Här görs mappningnar för olika requests som ska skickas vidare till en databas
-    @GetMapping( )
+    @GetMapping()
     public List<SongDto> all(){
         return service.getAllSongs();
     }
