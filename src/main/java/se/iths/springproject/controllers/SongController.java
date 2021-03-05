@@ -66,8 +66,8 @@ public class SongController {
     }
 
     @PatchMapping("/{id}")
-    public SongDto update(@RequestBody SongTitle songTitle, @PathVariable int id) {
-        return service.update(id, songTitle);
+    public SongDto update(@RequestBody SongDto songDto, @PathVariable int id) {
+        return service.update(id, songDto);
     }
 
 }

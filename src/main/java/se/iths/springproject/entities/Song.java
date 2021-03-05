@@ -18,12 +18,12 @@ public class Song {
     public Song(){
 
     }
-    public Song(String title, String album,String artist , int length) {
-        this.artist = artist;
-        this.title = title;
-        this.album = album;
-        this.length = length;
-    }
+//    public Song(String title, String album,String artist , int length) {
+//        this.artist = artist;
+//        this.title = title;
+//        this.album = album;
+//        this.length = length;
+//    }
 
     public Song(int id, String title, String album, String artist, int length) {
         this.id = id;

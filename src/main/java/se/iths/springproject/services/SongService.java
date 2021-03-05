@@ -72,13 +72,14 @@ public class SongService implements se.iths.springproject.services.Service {
 
     }
 
-    public SongDto update(int id, SongTitle songTitle) {
+    public SongDto update(int id, SongDto songDto) {
         Optional <Song> song = songRepository.findById(id);
         if (song.isPresent())
         {
             Song updatedSong = song.get();
-            if (songTitle.getTitle() != null)
-                updatedSong.setTitle(songTitle.getTitle());
+
+            if (updatedSong.getTitle() != null)
+                updatedSong.setTitle(songDto.getTitle());
 
 
             return songMapper.mapp(songRepository.save(updatedSong));

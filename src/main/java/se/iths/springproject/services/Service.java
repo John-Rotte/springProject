@@ -19,5 +19,5 @@ public interface Service {
 
     SongDto replace(int id, SongDto songDto);
 
-    SongDto update(int id, SongTitle songTitle);
+    SongDto update(int id, SongDto songDto);
 }
