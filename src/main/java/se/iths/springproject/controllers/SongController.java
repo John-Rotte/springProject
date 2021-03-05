@@ -27,6 +27,16 @@ public class SongController {
         return service.getAllSongs();
     }
 
+    @GetMapping("/search")
+    public List<SongDto> search(@RequestParam String title) {
+        var result = service.search(title);
+
+        if(!result.isEmpty())
+            return result;
+
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Title " + title + " not found");
+    }
+
     @GetMapping("/{id}")
     public SongDto one(@PathVariable int id){
         return service.getOne(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,

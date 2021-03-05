@@ -28,6 +28,7 @@ public class SongService implements se.iths.springproject.services.Service {
     }
 
 
+    public List <SongDto> search(String title) {return songMapper.mapp(songRepository.findAllByTitleContains(title)); }
 
     public Optional <SongDto>  getOne(int id){
         return songMapper.mapp(songRepository.findById(id));

@@ -17,4 +17,6 @@ public interface SongRepository extends JpaRepository<Song, Integer> {
     //Genom att namnge metoden rätt så skapas automatiskt en sql-fråga
     List<Song> findAllByTitle(String title);
 
+    List <Song> findAllByTitleContains(String title);
+
 }

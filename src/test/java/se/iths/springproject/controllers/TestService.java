@@ -21,6 +21,9 @@ public class TestService implements Service {
     }
 
     @Override
+    public List <SongDto> search (String title) {return null;}
+
+    @Override
     public SongDto createSong(SongDto songDto) {
         return null;
     }

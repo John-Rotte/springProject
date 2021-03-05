@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface Service {
     List<SongDto> getAllSongs();
 
+    List <SongDto> search (String title);
+
     Optional<SongDto> getOne(int id);
 
     SongDto createSong(SongDto songDto);
